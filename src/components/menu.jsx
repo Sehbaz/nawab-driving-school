@@ -36,12 +36,12 @@ const Menu = class extends React.Component {
   render() {
     return (
       <nav
-        className='navbar is-transparent is-fixed-top'
+        className='navbar is-fixed-top is-light'
         role='navigation'
         aria-label='main-navigation'
       >
-        <div className='container'>
-          <div className='navbar-brand'>
+        <div className='container is-dark'>
+          <div className='navbar-brand '>
             <Link to='/' className='navbar-item' title='Logo'>
               <img src={gatsbyicon} style={{ height: `2rem` }}></img>
             </Link>
@@ -60,8 +60,8 @@ const Menu = class extends React.Component {
             id='navMenu'
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className='navbar-start has-text-centered'></div>
-            <div className='navbar-end has-text-centered'>
+            <div className='navbar-start has-text-centered '></div>
+            <div className='navbar-end has-text-centered '>
               <Link className='navbar-item' to='/'>
                 Home
               </Link>
