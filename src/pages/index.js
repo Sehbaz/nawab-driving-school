@@ -16,7 +16,7 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
-    <section class='hero is-medium is-info is-bold'>
+    <section class='hero is-medium is-danger is-bold'>
       <div class='hero-body'>
         <div class='container'>
           <h1 class='title'>Expert Driving Lessons in Leicester</h1>
