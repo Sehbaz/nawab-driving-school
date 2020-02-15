@@ -1,55 +1,54 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import gatsbyicon from "../images/gatsby-icon.png"
-
+import React from "react";
+import { Link } from "gatsby";
+import gatsbyicon from "../images/gatsby-icon.png";
+import TestRoute from "../pages/testroute";
+import Show from "../pages/show";
 
 const Menu = class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       active: false,
-      navBarActiveClass: '',
-    }
+      navBarActiveClass: ""
+    };
   }
 
   toggleHamburger = () => {
     // toggle the active boolean in the state
     this.setState(
       {
-        active: !this.state.active,
+        active: !this.state.active
       },
       // after state has been updated,
       () => {
         // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
-              navBarActiveClass: 'is-active',
+              navBarActiveClass: "is-active"
             })
           : this.setState({
-              navBarActiveClass: '',
-            })
+              navBarActiveClass: ""
+            });
       }
-    )
-  }
+    );
+  };
 
   render() {
     return (
       <nav
-        className="navbar is-transparent is-fixed-top"
-        role="navigation"
-        aria-label="main-navigation"
+        className='navbar is-transparent is-fixed-top'
+        role='navigation'
+        aria-label='main-navigation'
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-           
-             <img src={gatsbyicon} style={{height:`2rem`}}></img>
-            
+        <div className='container'>
+          <div className='navbar-brand'>
+            <Link to='/' className='navbar-item' title='Logo'>
+              <img src={gatsbyicon} style={{ height: `2rem` }}></img>
             </Link>
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
+              data-target='navMenu'
               onClick={() => this.toggleHamburger()}
             >
               <span />
@@ -58,30 +57,26 @@ const Menu = class extends React.Component {
             </div>
           </div>
           <div
-            id="navMenu"
+            id='navMenu'
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className="navbar-start has-text-centered">
-            
-              
-             
-            </div>
-            <div className="navbar-end has-text-centered">
-            <Link className="navbar-item" to="/about">
+            <div className='navbar-start has-text-centered'></div>
+            <div className='navbar-end has-text-centered'>
+              <Link className='navbar-item' to='/'>
                 Home
               </Link>
-              <Link className="navbar-item" to="/products">
+              <Link className='navbar-item' to='/show'>
                 Show/Tell
               </Link>
-              <Link className="navbar-item" to="/blog">
+              <Link className='navbar-item' to='/testroute'>
                 Routes
               </Link>
             </div>
           </div>
         </div>
       </nav>
-    )
+    );
   }
-}
+};
 
-export default Menu
+export default Menu;

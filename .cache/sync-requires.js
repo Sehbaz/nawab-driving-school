@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-404-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/404.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/index.js"))),
   "component---src-pages-page-2-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/page-2.js"))),
-  "component---src-pages-services-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/services.js")))
+  "component---src-pages-show-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/show.js"))),
+  "component---src-pages-testroute-js": hot(preferDefault(require("/Users/sehbazrafik/Documents/GitHub/nawab-driving-school/src/pages/testroute.js")))
 }
 
