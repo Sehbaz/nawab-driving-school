@@ -1,93 +1,95 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-const Menu=()=>{
-    // Dropdowns in navbar
+import React from 'react'
+import { Link } from 'gatsby'
 
-    var $dropdowns = getAll('.navbar-item.has-dropdown:not(.is-hoverable)');
 
-    if ($dropdowns.length > 0) {
-      $dropdowns.forEach(function ($el) {
-        $el.addEventListener('click', function (event) {
-          event.stopPropagation();
-          $el.classList.toggle('is-active');
-        });
-      });
-  
-      document.addEventListener('click', function (event) {
-        closeDropdowns();
-      });
+const Menu = class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      active: false,
+      navBarActiveClass: '',
     }
-  
-    function closeDropdowns() {
-      $dropdowns.forEach(function ($el) {
-        $el.classList.remove('is-active');
-      });
-    }
-  
-    // Close dropdowns if ESC pressed
-    document.addEventListener('keydown', function (event) {
-      var e = event || window.event;
-      if (e.keyCode === 27) {
-        closeDropdowns();
+  }
+
+  toggleHamburger = () => {
+    // toggle the active boolean in the state
+    this.setState(
+      {
+        active: !this.state.active,
+      },
+      // after state has been updated,
+      () => {
+        // set the class in state for the navbar accordingly
+        this.state.active
+          ? this.setState({
+              navBarActiveClass: 'is-active',
+            })
+          : this.setState({
+              navBarActiveClass: '',
+            })
       }
-    });
-  
-    // Toggles
-  
-    var $burgers = getAll('.burger');
-  
-    if ($burgers.length > 0) {
-      $burgers.forEach(function ($el) {
-        $el.addEventListener('click', function () {
-          var target = $el.dataset.target;
-          var $target = document.getElementById(target);
-          $el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    }
-  
-    // Functions
-  
-    function getAll(selector) {
-      return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
-    }
-    return( 
-      
-      <nav class="navbar is-transparent">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
-        </a>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="https://bulma.io/">
-            Home
-          </a>
-          <a class="navbar-item" href="https://bulma.io/">
-            Home
-          </a>
-          <a class="navbar-item" href="https://bulma.io/">
-            Home
-          </a>
-          <a class="navbar-item" href="https://bulma.io/">
-            Home
-          </a>
-         
-        </div>
-    
-    
-      </div>
-    </nav>
     )
+  }
+
+  render() {
+    return (
+      <nav
+        className="navbar is-transparent"
+        role="navigation"
+        aria-label="main-navigation"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <Link to="/" className="navbar-item" title="Logo">
+              
+            </Link>
+            {/* Hamburger menu */}
+            <div
+              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+              data-target="navMenu"
+              onClick={() => this.toggleHamburger()}
+            >
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
+          <div
+            id="navMenu"
+            className={`navbar-menu ${this.state.navBarActiveClass}`}
+          >
+            <div className="navbar-start has-text-centered">
+              <Link className="navbar-item" to="/about">
+                About
+              </Link>
+              <Link className="navbar-item" to="/products">
+                Products
+              </Link>
+              <Link className="navbar-item" to="/blog">
+                Blog
+              </Link>
+              <Link className="navbar-item" to="/contact">
+                Contact
+              </Link>
+              <Link className="navbar-item" to="/contact/examples">
+                Form Examples
+              </Link>
+            </div>
+            <div className="navbar-end has-text-centered">
+              <a
+                className="navbar-item"
+                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+               
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    )
+  }
 }
 
 export default Menu
