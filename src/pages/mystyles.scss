@@ -1,5 +1,29 @@
 @charset "utf-8";
 // If need, change your variables before importing Bulma
 $red-color: #ff0000;
+.primary-color {
+  color: #00ce89;
+}
+.has-bg-img {
+  background: url("../images/main-bg3.jpg") center center;
+  background-size: cover;
+  color: #fff;
+}
+.navbar {
+  &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+  }
+}
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Heebo&display=swap");
 
+// Font Variables
+
+$is-family-primary: "Heebo";
+$title: "Heebo"; // Styles
 @import "~bulma/bulma.sass";
+body {
+  font-family: $is-family-primary;
+  font-weight: normal;
+}

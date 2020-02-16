@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import gatsbyicon from "../images/gatsby-icon.png";
+import mainicon from "../images/driving-pass.png";
 import TestRoute from "../pages/testroute";
 import Show from "../pages/show";
 
@@ -36,14 +36,17 @@ const Menu = class extends React.Component {
   render() {
     return (
       <nav
-        className='navbar is-fixed-top is-light'
+        className='navbar is-white is-size-6'
         role='navigation'
         aria-label='main-navigation'
       >
-        <div className='container is-dark'>
+        <div className='container'>
           <div className='navbar-brand '>
             <Link to='/' className='navbar-item' title='Logo'>
-              <img src={gatsbyicon} style={{ height: `2rem` }}></img>
+              <img src={mainicon}></img>
+              <Link className='navbar-item' to='/'>
+                <p>Nawab</p>
+              </Link>
             </Link>
             {/* Hamburger menu */}
             <div
